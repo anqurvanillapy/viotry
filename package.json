@@ -1,0 +1,21 @@
+{
+  "name": "viotry",
+  "version": "0.0.1",
+  "description": "Mobile application for neologophiles",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anqurvanillapy/viotry.git"
+  },
+  "keywords": [
+    "webapp", "neologophile"
+  ],
+  "author": "AnqurVanillapy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anqurvanillapy/viotry/issues"
+  },
+  "homepage": "https://github.com/anqurvanillapy/viotry#readme"
+}
