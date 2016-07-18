@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Mobile application for neologophiles",
   "scripts": {
+    "dev": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
