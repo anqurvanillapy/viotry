@@ -93,12 +93,93 @@ body {
 
 .header__title {
   margin: 0;
+  font-weight: 400;
   font-size: 20px;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
+
+.headerButton {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  overflow: hidden;
+  text-indent: -3000px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: #fdfdfd;
+}
+
+/* Hamburger menu icon */
+
+#menuButton span {
+  display: block;
+  position: absolute;
+  top: 11px;
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  background: #000;
+  -webkit-transition: background 0s 0.2s;
+          transition: background 0s 0.2s;
+}
+
+#menuButton span::before,
+#menuButton span::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  content: "";
+  -webkit-transition-duration: 0.2s, 0.2s;
+          transition-duration: 0.2s, 0.2s;
+  -webkit-transition-delay: 0.2s, 0s;
+          transition-delay: 0.2s, 0s;
+}
+
+#menuButton span::before {
+  top: -5px;
+  -webkit-transition-property: top, transform;
+          transition-property: top, transform;
+}
+
+#menuButton span::after {
+  bottom: -5px;
+  -webkit-transition-property: bottom, transform;
+          transition-property: bottom, transform;
+}
+
+
+
+#menuButton.active span {
+  background: none;
+}
+
+#menuButton.active span::before {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#menuButton.active span::after {
+  bottom: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+#menuButton.active span::before,
+#menuButton.active span::after {
+  -webkit-transition-delay: 0s, 0.2s;
+          transition-delay: 0s, 0.2s;
+}
+
 
 /**
  *  Main
