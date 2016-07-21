@@ -11,12 +11,17 @@
     "url": "git+https://github.com/anqurvanillapy/viotry.git"
   },
   "keywords": [
-    "webapp", "neologophile"
+    "webapp",
+    "neologophile"
   ],
   "author": "AnqurVanillapy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/anqurvanillapy/viotry/issues"
   },
-  "homepage": "https://github.com/anqurvanillapy/viotry#readme"
+  "homepage": "https://github.com/anqurvanillapy/viotry#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
 }
