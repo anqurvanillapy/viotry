@@ -59,7 +59,7 @@ body {
   width: 100%;
   height: 56px;
   padding: 16px 16px 0 16px;
-  background: #fdfdfd;
+  background: #fff;
   position: fixed;
   box-shadow: 0 4px 5px 0     rgba(200, 200, 200, 0.14),
               0 2px 9px 1px   rgba(200, 200, 200, 0.12),
@@ -112,7 +112,7 @@ body {
   outline: none;
   border: none;
   cursor: pointer;
-  background: #fdfdfd;
+  background: #fff;
 }
 
 /* Hamburger menu icon */
@@ -187,8 +187,8 @@ body {
  *  Sidebar
  */
 
-.sidebar-container {
-  background: rgba(0, 0, 0, 0.57);
+.sidebar-overlay {
+  background: rgba(0, 0, 0, 0.5);
   position: fixed;
   left: 0;
   top: 0;
@@ -196,14 +196,37 @@ body {
   height: 100%;
   opacity: 0;
   pointer-events: none;
-  will-change: opacity;
-  -webkit-transition: opacity 0.3s;
-          transition: opacity 0.3s;
+  will-change: opacity, transform;
+  -webkit-transition: opacity 0.3s, width 0.3s;
+          transition: opacity 0.3s, width 0.3s;
+  z-index: 500;
 }
 
-.sidebar-container--visible {
+.sidebar-overlay.active {
   opacity: 1;
   pointer-events: auto;
+  width: 80%;
+}
+
+.sidebar {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  right: -20%;
+  top: 0;
+  box-shadow: -4px 0 5px 0     rgba(200, 200, 200, 0.14),
+              -2px 0 9px 1px   rgba(200, 200, 200, 0.12),
+              -4px 0 2px -2px  rgba(200, 200, 200, 0.2);
+  background: #fff;
+  will-change: transform;
+  -webkit-transition: transform 0.3s;
+          transition: transform 0.3s;
+  z-index: 800;
+}
+
+.sidebar.active {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 /**
@@ -230,7 +253,7 @@ body {
   padding: 16px;
   position: relative;
   box-sizing: border-box;
-  background: #fdfdfd;
+  background: #fff;
   border-radius: 2px;
   box-shadow: 0 4px 5px 0     rgba(200, 200, 200, 0.14),
               0 2px 9px 1px   rgba(200, 200, 200, 0.12),
