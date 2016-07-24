@@ -3,11 +3,13 @@
 
   var app = {
     hasVisibleSidebar: false,
-    header: document.querySelector('.header'),
+    headerTitle: document.querySelector('.header__title'),
     main: document.querySelector('.main'),
-    menuButton: document.getElementById('menuButton'),
-    sidebarOverlay: document.querySelector('.sidebar-overlay'),
-    sidebar: document.querySelector('.sidebar')
+    sidebarView: {
+      menuButton: document.getElementById('menuButton'),
+      sidebarOverlay: document.querySelector('.sidebar-overlay'),
+      sidebar: document.querySelector('.sidebar')
+    }
   }
 
   /**
@@ -16,11 +18,11 @@
    *  ==========================================================================
    */
 
-  app.header.addEventListener('click', function () {
+  app.headerTitle.addEventListener('click', function () {
     app.backToTop()
   })
 
-  app.menuButton.addEventListener('click', function () {
+  app.sidebarView.menuButton.addEventListener('click', function () {
     if (app.hasVisibleSidebar) {
       app.toggleSideBar(false)
     } else {
@@ -28,10 +30,8 @@
     }
   })
 
-  app.sidebarOverlay.addEventListener('click', function (e) {
-    if (e.target === app.sidebarOverlay) {
-      app.toggleSideBar(false)
-    }
+  app.sidebarView.sidebarOverlay.addEventListener('click', function () {
+    app.toggleSideBar(false)
   })
 
   /**
@@ -46,14 +46,14 @@
 
   app.toggleSideBar = function (visible) {
     if (visible) {
-      app.menuButton.classList.add('active')
-      app.sidebarOverlay.classList.add('active')
-      app.sidebar.classList.add('active')
+      Object.keys(app.sidebarView).forEach(function (widget) {
+        app.sidebarView[widget].classList.add('active')
+      })
       app.hasVisibleSidebar = true
     } else {
-      app.menuButton.classList.remove('active')
-      app.sidebarOverlay.classList.remove('active')
-      app.sidebar.classList.remove('active')
+      Object.keys(app.sidebarView).forEach(function (widget) {
+        app.sidebarView[widget].classList.remove('active')
+      })
       app.hasVisibleSidebar = false
     }
   }

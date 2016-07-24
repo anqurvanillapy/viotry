@@ -196,23 +196,23 @@ body {
   height: 100%;
   opacity: 0;
   pointer-events: none;
-  will-change: opacity, transform;
-  -webkit-transition: opacity 0.3s, width 0.3s;
-          transition: opacity 0.3s, width 0.3s;
+  will-change: opacity;
+  -webkit-transition: opacity 0.3s;
+          transition: opacity 0.3s;
   z-index: 500;
 }
 
 .sidebar-overlay.active {
   opacity: 1;
   pointer-events: auto;
-  width: 80%;
 }
 
 .sidebar {
-  width: 20%;
+  width: 58px;
   height: 100%;
   position: absolute;
-  right: -20%;
+  padding-top: 60px;
+  right: -64px;
   top: 0;
   box-shadow: -4px 0 5px 0     rgba(200, 200, 200, 0.14),
               -2px 0 9px 1px   rgba(200, 200, 200, 0.12),
@@ -225,8 +225,60 @@ body {
 }
 
 .sidebar.active {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  -webkit-transform: translateX(-64px);
+          transform: translateX(-64px);
+}
+
+.sidebarButton {
+  display: block;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 5px 15px;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  text-indent: -9999px;
+}
+
+/* Profile button */
+
+#profileButton span {
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  right: 5px;
+  width: 18px;
+  background: transparent;
+}
+
+#profileButton span::before,
+#profileButton span::after {
+  display: block;
+  position: absolute;
+  background: #000;
+  content: "";
+}
+
+#profileButton span::before {
+  width: 8px;
+  height: 10px;
+  left: 5px;
+  top: 0px;
+  border-radius: 5px 5px 5px 5px / 5px 5px 10px 10px;
+}
+
+#profileButton span::after {
+  width: 100%;
+  left: 0;
+  height: 7px;
+  border-radius: 4px 4px 0 0;
+  top: 10px;
+  box-shadow: 0 2px 2px #ccc;
 }
 
 /**
