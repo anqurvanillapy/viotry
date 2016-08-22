@@ -5,10 +5,9 @@
     hasVisibleSidebar: false,
     headerTitle: document.querySelector('.header__title'),
     main: document.querySelector('.main'),
-    sidebarView: {
+    sidebar: {
       menuButton: document.getElementById('menuButton'),
-      sidebarOverlay: document.querySelector('.sidebar-overlay'),
-      sidebar: document.querySelector('.sidebar')
+      sidebarContainer: document.querySelector('.sidebar-container')
     }
   }
 
@@ -22,7 +21,7 @@
     app.backToTop()
   })
 
-  app.sidebarView.menuButton.addEventListener('click', function () {
+  app.sidebar.menuButton.addEventListener('click', function () {
     if (app.hasVisibleSidebar) {
       app.toggleSideBar(false)
     } else {
@@ -30,8 +29,10 @@
     }
   })
 
-  app.sidebarView.sidebarOverlay.addEventListener('click', function () {
-    app.toggleSideBar(false)
+  app.sidebar.sidebarContainer.addEventListener('click', function (e) {
+    if (e.target === app.sidebar.sidebarContainer) {
+      app.toggleSideBar(false)
+    }
   })
 
   /**
@@ -46,13 +47,13 @@
 
   app.toggleSideBar = function (visible) {
     if (visible) {
-      Object.keys(app.sidebarView).forEach(function (widget) {
-        app.sidebarView[widget].classList.add('active')
+      Object.keys(app.sidebar).forEach(function (widget) {
+        app.sidebar[widget].classList.add('active')
       })
       app.hasVisibleSidebar = true
     } else {
-      Object.keys(app.sidebarView).forEach(function (widget) {
-        app.sidebarView[widget].classList.remove('active')
+      Object.keys(app.sidebar).forEach(function (widget) {
+        app.sidebar[widget].classList.remove('active')
       })
       app.hasVisibleSidebar = false
     }
